@@ -9,7 +9,7 @@ cp bin/lesspass.py ~/coding/
 
 # install fonts
 mkdir ~/.fonts
-cp bin/fonts/*.otf ~/.fonts
+tar xf bin/fonts.tar.gz -C ~/.fonts
 fc-cache -f -v "~/.fonts"
 
 # configure firefox
