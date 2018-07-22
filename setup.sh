@@ -50,9 +50,6 @@ cp config/shell/fish/config.fish $FISHP
 gsettings set org.gnome.desktop.background picture-uri  file:///usr/share/backgrounds/gnome/Road.jpg
 gsettings set org.gnome.desktop.screensaver picture-uri file:///usr/share/backgrounds/ubuntu-gnome/pexels-fruit.jpg
 
-# initialized pomodoro sw
-/usr/bin/gnome-pomodoro --no-default-window &
-
 # easy git; done at last so that blocking call doesn't interrupt setup
 SH="`dirname "$(readlink -f "$0")"`"    # TODO: include this everywhere
 mkdir -p "$HOME/.config/git"
