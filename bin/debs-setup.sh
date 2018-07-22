@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo apt install git terminator vim fish
+sudo apt install -y git terminator vim fish
 
