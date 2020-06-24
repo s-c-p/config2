@@ -6,14 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " looks ----------------------------------------
 Plug 'vim-airline/vim-airline'
-"Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
-
-" syntax ---------------------------------------
-"Plug 'vim-syntastic/syntastic'
-"Plug 'othree/yajs.vim'                         " sheerun/vim-polyglot isn't satisfactory at this time
-"Plug 'ElmCast/elm-vim'
-"Plug 'othree/html5-syntax.vim'
 Plug 'vim-python/python-syntax'
 
 " enhancements ---------------------------------
@@ -25,33 +18,16 @@ Plug 'tpope/vim-commentary'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
 
-" IDE-ish --------------------------------------
-"Plug 'davidhalter/jedi-vim'
-"Plug 'ggreer/the_silver_searcher'
-
-" extravagant ----------------------------------
-"Plue 'SirVer/ultisnips'
-"Plug 'tpope/vim-abolish'
-"Plug 'vim-scripts/matchit.zip'
-"Plug 'Townk/vim-autoclose'                      " why? see past made on 20apr2018 at pastebin.com/search?q=Townk
-"Plug 'tpope/vim-fugitive'
-
 call plug#end()
 
 " plugin config(s) -----------------------------------------------------------
 "   these are written after plugins are loaded
 "   so that plugin's settings don't end up
 "   overwriting these
-" ----------------------------- looks : <common>
-syntax enable                                   " soflow.com/q/33380451
-set background=dark
 " ----------------------------- looks : airline
 let g:airline_detect_paste=1
 " ----------------------------- looks : solarized
 colorscheme solarized
-" ----------------------------- looks : molokai
-"let g:molokai_original=1
-"colorscheme molokai
 " ----------------------------- syntax : python-syntax
 let g:python_highlight_all=1
 " ----------------------------- enhancements : NERDTree
@@ -62,6 +38,9 @@ map <C-o> :NERDTreeToggle<CR>
 set shortmess+=c
 
 " essentials -----------------------------------------------------------------
+syntax enable                                   " soflow.com/q/33380451
+set background=dark
+
 set ruler
 set number
 
