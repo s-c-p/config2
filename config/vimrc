@@ -32,7 +32,7 @@ colorscheme solarized
 let g:python_highlight_all=1
 " ----------------------------- enhancements : NERDTree
 let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 map <C-o> :NERDTreeToggle<CR>
 " ----------------------------- enhancements : VimCompletesMe
 set shortmess+=c
@@ -46,6 +46,8 @@ set number
 
 set nowrap
 set showcmd
+
+set splitbelow                                   " vi.SE/q/16795
 
 set expandtab
 set tabstop=4
