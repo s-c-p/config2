@@ -7,16 +7,29 @@ call plug#begin('~/.vim/plugged')
 " looks ----------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
+
+" syntax ---------------------------------------
 Plug 'vim-python/python-syntax'
 
 " enhancements ---------------------------------
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ajh17/VimCompletesMe'                     " 100K smaller than supertab
 Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'	" A..MAZ..ING, really shows the power of vim-style command combination
+Plug 'tpope/vim-commentary'	" I think the kb-combo is too vim-anal, why not `Ctrl` + `/`
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-expand-region'
+
+" IDE-ish --------------------------------------
+"Plug 'davidhalter/jedi-vim'	" vim is perhaps not the right tool for such thing
+"Plug 'ggreer/the_silver_searcher'
+
+" extravagant ----------------------------------
+"Plue 'SirVer/ultisnips'
+"Plug 'tpope/vim-abolish'
+"Plug 'vim-scripts/matchit.zip'
+"Plug 'Townk/vim-autoclose'                      " why? see past made on 20apr2018 at pastebin.com/search?q=Townk
+"Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -24,30 +37,34 @@ call plug#end()
 "   these are written after plugins are loaded
 "   so that plugin's settings don't end up
 "   overwriting these
-" ----------------------------- looks : airline
-let g:airline_detect_paste=1
-" ----------------------------- looks : solarized
-colorscheme solarized
-" ----------------------------- syntax : python-syntax
-let g:python_highlight_all=1
-" ----------------------------- enhancements : NERDTree
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
-map <C-o> :NERDTreeToggle<CR>
-" ----------------------------- enhancements : VimCompletesMe
-set shortmess+=c
-
-" essentials -----------------------------------------------------------------
 syntax enable                                   " soflow.com/q/33380451
 set background=dark
 
+let g:airline_detect_paste=1
+
+colorscheme solarized
+
+let g:python_highlight_all=1
+
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
+map <C-o> :NERDTreeToggle<CR>
+
+set shortmess+=c
+
+augroup pencil
+	autocmd!
+	autocmd FileType text call pencil#init() " https://github.com/reedes/vim-pencil#initializing-by-file-type
+augroup END
+
+" essentials -----------------------------------------------------------------
 set ruler
 set number
 
 set nowrap
 set showcmd
 
-set splitbelow                                   " vi.SE/q/16795
+set splitbelow                                  " vi.SE/q/16795
 
 set expandtab
 set tabstop=4
@@ -57,7 +74,7 @@ set softtabstop=4
 set autoindent
 set smartindent
 
-"set cursorline
+" set cursorline
 set laststatus=2
 set encoding=utf8
 
@@ -73,12 +90,9 @@ set incsearch
 hi Search ctermfg=167 ctermbg=NONE cterm=underline " guifg=#e74c3c guibg=NONE gui=underline
 hi IncSearch ctermfg=167 ctermbg=NONE " cterm=underline " guifg=#e74c3c guibg=NONE gui=underline
 
-" vim.wikia.com/wiki/Su-write
-"command W w !sudo tee "%" > /dev/null
-" vim.wikia.com/wiki/Disable_beeping
-set noerrorbells visualbell t_vb=
-" vim.wikia.com/wiki/Backspace_and_delete_problems
-set backspace=indent,eol,start
+"command W w !sudo tee "%" > /dev/null          " vim.wikia.com/wiki/Su-write
+set noerrorbells visualbell t_vb=               " vim.wikia.com/wiki/Disable_beeping
+set backspace=indent,eol,start                  " vim.wikia.com/wiki/Backspace_and_delete_problems
 
-" file-type specific settings, thanks to bit.ly/2yHOp1b and bit.ly/2yHMCsQ
-au FileType text setl tabstop=4 wrap
+" file-type specific settings, bit.ly/2yHOp1b and bit.ly/2yHMCsQ
+au FileType text setl tabstop=4 wrap            " https://github.com/reedes/vim-pencil#initializing-by-file-type
